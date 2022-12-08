@@ -1,0 +1,39 @@
+to start pySpark in pc start jupyter notebook and go to lcoalhost
+start new notebook
+
+Start SparkSession
+  from pyspark.sql import SparkSession
+  
+Start Spark variable on SparkSession
+  spark = SparkSession.builder.appName('first').getOrCreate()
+
+read datafile present in file test1.csv
+  data=spark.read.format('csv').load('/home/raj/data/test2.csv')
+  data=spark.read.format('csv').option('header','true').load('/home/raj/data/test2.csv')
+  data=spark.read.csv('/home/raj/data/test2.csv',header=True,inferSchema=True)
+
++---------+---+----------+
+|     name|age|experience|
++---------+---+----------+
+|    Krish| 31|        10|
+|Sudhanshu| 30|         8|
+|    Sanny| 29|         4|
++---------+---+----------+
+
+View column properties 
+data.printSchema()
+root
+ |-- name: string (nullable = true)
+ |-- age: integer (nullable = true)
+ |-- experience: integer (nullable = true)
+ 
+ List the columns in dataframe
+ 
+ data.columns
+ ['name', 'age', 'experience']
+ 
+ get 3 first row in dataframe
+ data.head(3)
+ [Row(name='Krish', age=31, experience=10),
+ Row(name='Sudhanshu', age=30, experience=8),
+ Row(name='Sanny', age=29, experience=4)]
