@@ -1,0 +1,10 @@
+id,name,dept,deptno,salary
+1,rajkumar,it,i001,45000
+2,mukesh,it,i001,35000
+3,kiran,house,h001,12000
+4,ranu,house,h001,15000
+5,himesh,hr,h002,44000
+6,reena,hr,h002,43000
+7,pagal,hr,h002,21000
+8,ratnesh,it,i001,25000
+9,rohit,house,h001,20000
