@@ -1,0 +1,44 @@
+Task 1 ----
+
+Flatten Pets.json using Select
+Flatten Pets.json using withColumn --- optional
+
+Task 2 ---
+
+donot.json
+Flatten it completely
+Revert it back 
+
+
+Task 3 --- Optional ---
+Try to find a way to hit the url https://randomuser.me/api/0.8/?results=10
+And convert that to dataframe 
+Print the Schema
+
+Task 4 ----- Optional
+
+zeyoc.json
+
+Change Hierarchy from
+
+orgname
+address
+	personaladdress
+	professionaladdress
+otherdetails
+	name
+	age
+	Designation
+	Role
+
+Can u find a way to change the hierarachy separating personal and professional details
+
+orgname
+personal
+	personaladdress
+	name
+	age
+profession
+	professionaladdress
+	designation
+	role

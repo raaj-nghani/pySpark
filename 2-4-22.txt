@@ -1,0 +1,30 @@
+Lab Folks
+
+Open Two Shells (Putty, Mobaxterm)
+
+
+==============================
+Go to Hive shell --   hive
+==============================
+
+SET hive.metastore.warehouse.dir = /user/itv001705/warehouse;
+create database zeyospark;
+use zeyospark;
+
+
+create  table txnrecs(txnno INT, txndate STRING, custno INT, amount DOUBLE,category STRING, product STRING, city STRING, state STRING, spendby STRING)  row format delimited fields terminated by ',' lines terminated by '\n' stored as textfile;
+
+load data local inpath '/home/itv001705/data/txns' into table txnrecs;
+
+==============================
+Go to Spark shell --    spark-shell
+==============================
+
+sc.setLogLevel("Error")
+val df = spark.sql("select * from zeyospark.txnrecords where txnno>50000")
+df.show()
+
+val df1 = spark.table("zeyospark.txnrecords")
+df1.show()
+
+val resultdf=df.groupBy("category").agg(sum("amount").as("sum_amount"))resultdf.write.format("parquet").saveAsTable("rajkumar.category_total")
